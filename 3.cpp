@@ -1,22 +1,25 @@
 #include<stdio.h>
-int add(int a, int b); //declare add function
-int multiply(int c, int d); //declare multiply function
-int square(int e); //declare square function
-int main(void) //begins to execute the programme
-{
-	printf("%d", (square(add(multiply(3,4) ,multiply(5,7))))); //print and calculate the final output
+#include<assert.h>
+#include<math.h>
+double hypotenuse(double x, double y); //function prototype
+void testHypotenuse() 
+{ //begins function testHypotenuse
+	assert(fabs(hypotenuse(3.0, 4.0)) == 5.0); //debug the triangle value
+	assert(fabs(hypotenuse(5.0, 12.0)) == 13.0); //debug the triangle value
+	assert(fabs(hypotenuse(8.0, 15.0)) == 17.0); //debug the triangle value
 }
-int add(int a, int b) //calling add fuction
-{
-	int x = a + b; //task of the function
-	return x;
-} //end function add
-int multiply(int c, int d) //calling multiply function
-{
-	int y = c * d; //task of the function
-	return y;
-} //end function multiply
-int square(int e) //calling square function
-{
-	return e * e; //return to the main fuction
-} //end function square
+int main(void)
+{ //begins main programme
+	double side1, side2; //declare variables
+	testHypotenuse(); //calling function testHypotenuse
+	printf("Enter the Side 1: "); //prompt
+	scanf("%lf", &side1); //read the 1st side triangle value
+	printf("Enter the Side 2: "); //prompt
+	scanf("%lf", &side2); //read the second triangle value
+	
+	printf("Hypotenuse: %.2lf", hypotenuse(side1,side2)); //display hypotenuse
+} //end function main
+double hypotenuse(double x, double y) //calling function 
+{ //begins function hypotenuse
+	return sqrt((x*x)+(y*y)); //return value
+} //end function hypotenuse
