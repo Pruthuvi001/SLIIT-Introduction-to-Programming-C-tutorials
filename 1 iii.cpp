@@ -1,10 +1,7 @@
 #include<stdio.h>
-int main (void)
+#include<math.h>
+int main(void)
 {
-	int x;
-	int y;
-	x=2;
-	y=3;
-	printf("x=");
+	printf("X = %.2f", ceil(-6.4));
 	return 0;
 }
