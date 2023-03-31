@@ -1,6 +1,10 @@
-#include <stdio.h>
+#include<stdio.h>
 int main (void)
 {
-	printf("Welcome\tto\tSLIIT\t");
+	int x;
+	int y;
+	x=2;
+	y=3;
+	printf("x=");
 	return 0;
 }
