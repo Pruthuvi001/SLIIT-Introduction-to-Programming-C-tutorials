@@ -1,27 +1,26 @@
 #include<stdio.h>
-#define SIZE 10
-int main(void) //begins to execute the programme
-{
-	int marks[SIZE]; //declare the array
-	int i; //count variable
-	int sum; //decalre sum variable
+#define ROW 4 //define rows
+#define COLOUMN 4 //define coloumns
+int main(void)
+{ //begins to execute the programme
+	int no1[ROW][COLOUMN] = {{5,7,8,10}, {9,3,0,6}, {8,1,9,2}, {4,7,2,1}}; //decalre 1st mattrix
+	int no2[ROW][COLOUMN] = {{2,2,1,3}, {8,1,3,1}, {1,2,2,4}, {3,1,1,2}}; //declare 2nd mattix
+	int i, j, sum; //counting variables and sum variable
 	
-	for(i = 0; i < SIZE;){ //read the marks for 10 times by for loop
-		printf("Enter the mark between 0 to 20 of Student %d :- ", i + 1); //prompt
-		scanf("%d", &marks[i]); //read the mark entered by the user
-		if((marks[i] > 0)&&(marks[i] <= 20)){ //check the marks between 0 to 20
-			i++; //increament the value of the statement is true
-		} //end if statement
-	} //end for loop
+	for(i = 0; i <= 3; ++i){ //count until 3 values
+		for(j = 0; j <=3; ++j){ //count until 3 values
+			printf("%3d", no1[i][j]); //display values
+		}
+		printf("\n"); //net line
+	}
+	printf("\n"); //next line
 	
-	for(i =0; i < SIZE; i++){ //display marks for 10 times by for loop
-		printf("Mark of Student %d : %d\n", i + 1, marks[i]); //display marks of the students
-	} //end for loop
-	
-	for(i = 0; i < SIZE; i++){ //check all values of the array
-		sum += marks[i]; //intializing array values for sum
-	} //end for loop
-	printf("Mean = %.1f", sum / (float)i); //display mean of the marks stored in array
-	
-	return 0; //exit the programme
+	for(i = 0; i <= 3; ++i){ //count until 3 values
+		for(j = 0; j <= 3; ++j){ //count until 3 values
+			sum = no1[i][j] + no2[i][j]; //calculation sum of mattrix
+			printf("%3d", sum); //display the sum
+		}
+		printf("\n"); //next line
+	}
+	return 0; //return function
 } //end function main

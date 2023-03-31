@@ -1,30 +1,42 @@
 #include<stdio.h>
-#define SIZE 5
+#define SALESPERSON 4 //define salesperson
+#define PRODUCT 5 //define poduct
 int main(void)
-{ //begins to execute the programme
-	int motion[SIZE]; //declare the array
-	int i; //counting variable
-	int a; //decalre variables
+{ //begins to execute programme
+	int emp[SALESPERSON][PRODUCT] = {0}; //decalre array
+	int i, j; //counting variables
+	int salesPersonNo, productNo, sales, sum; //declare variables
+	printf("Enter the Salesperson number = "); //prompt
+	scanf("%d", &salesPersonNo); //read salesperson number
 	
-	for(i = 0; i < SIZE; i++){ //reading numbers from the keyboard for 5 times  
-		printf("Input a Number: "); //prompt
-		scanf("%d", &motion[i]); //read the numbers to store in array
-	} //end for loop
-	
-	for(i = 0; i < SIZE; i++){ //printing numbers for 5 times by for loop
-		printf("%d\t", motion[i]); //print the values of the array
+	while(salesPersonNo != -1){ //run the loop until type -1
+		printf("Enter the Product number = "); //prompt
+		scanf("%d", &productNo); //read product number
+		
+		printf("The total dollar value of that product sold that day = $"); //prompt
+		scanf("%d", &sales); //read the price sold on that day
+		
+		emp[salesPersonNo - 1][productNo - 1] = sales; //assign the total value of the array
+		
+		printf("Enter the Salesperson number = "); //prompt
+		scanf("%d", &salesPersonNo); //read salesperson number
 	}
-	
 	printf("\n"); //next line
 	
-	a = motion[0]; //assign 1st value of the aray to a variable for display at the end
-	
-	for(i = 1; i < SIZE; i++){ //rotate for 5 times
-		motion[i - 1] = motion[i]; //rotate the array values reducing value by 1
-		printf("%d\t", motion[i]); //display the rotated values
+	for(i = 0; i < SALESPERSON; ++i){ //loop for row
+		for(j = 0; j < PRODUCT; ++j){ //loop for coloumn
+			printf("%d\t", emp[i][j]); //print the array
+		}
+		printf("\n"); //next line
 	}
-	
-	printf("%d", a); //display the 1st value at last
-	
+	printf("\n"); //next line
+	for(j = 0; j < PRODUCT; ++j){ //loop of coloumn
+		sum = 0; //assign num to 0
+		for(i = 0; i < SALESPERSON; ++i){ //loop for row
+			sum = emp[i][j] + sum; //calcuate prodct sum
+			}
+		printf("Total sales of Products %d: %d\n", j + 1, sum); //display sum
+		}
+	printf("\n"); //net line
 	return 0;
 } //end function main
