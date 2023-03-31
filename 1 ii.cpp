@@ -1,6 +1,10 @@
-#include <stdio.h>
+#include<stdio.h>
 int main (void)
 {
-	printf("Welcome\nto\nSLIIT\n");
+	int x;
+	int y;
+	x=2;
+	y=3;
+	printf("%d",x+x);
 	return 0;
 }

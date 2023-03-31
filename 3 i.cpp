@@ -1,10 +1,6 @@
 #include<stdio.h>
 int main (void)
 {
-	int x;
-	int y;
-	x=2;
-	y=3;
-	printf("x=%d",x);
+	printf("%.3f\n",333.14159);
 	return 0;
 }

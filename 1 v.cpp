@@ -5,6 +5,6 @@ int main (void)
 	int y;
 	x=2;
 	y=3;
-	printf("x=%d",x);
+	/* printf("%d",x+y); */
 	return 0;
 }
