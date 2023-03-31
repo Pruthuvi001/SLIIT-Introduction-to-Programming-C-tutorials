@@ -1,25 +1,30 @@
 #include<stdio.h>
-#include<assert.h>
-#include<math.h>
-double hypotenuse(double x, double y); //function prototype
-void testHypotenuse() 
-{ //begins function testHypotenuse
-	assert(fabs(hypotenuse(3.0, 4.0)) == 5.0); //debug the triangle value
-	assert(fabs(hypotenuse(5.0, 12.0)) == 13.0); //debug the triangle value
-	assert(fabs(hypotenuse(8.0, 15.0)) == 17.0); //debug the triangle value
-}
+#define SIZE 5
 int main(void)
-{ //begins main programme
-	double side1, side2; //declare variables
-	testHypotenuse(); //calling function testHypotenuse
-	printf("Enter the Side 1: "); //prompt
-	scanf("%lf", &side1); //read the 1st side triangle value
-	printf("Enter the Side 2: "); //prompt
-	scanf("%lf", &side2); //read the second triangle value
+{ //begins to execute the programme
+	int motion[SIZE]; //declare the array
+	int i; //counting variable
+	int a; //decalre variables
 	
-	printf("Hypotenuse: %.2lf", hypotenuse(side1,side2)); //display hypotenuse
+	for(i = 0; i < SIZE; i++){ //reading numbers from the keyboard for 5 times  
+		printf("Input a Number: "); //prompt
+		scanf("%d", &motion[i]); //read the numbers to store in array
+	} //end for loop
+	
+	for(i = 0; i < SIZE; i++){ //printing numbers for 5 times by for loop
+		printf("%d\t", motion[i]); //print the values of the array
+	}
+	
+	printf("\n"); //next line
+	
+	a = motion[0]; //assign 1st value of the aray to a variable for display at the end
+	
+	for(i = 1; i < SIZE; i++){ //rotate for 5 times
+		motion[i - 1] = motion[i]; //rotate the array values reducing value by 1
+		printf("%d\t", motion[i]); //display the rotated values
+	}
+	
+	printf("%d", a); //display the 1st value at last
+	
+	return 0;
 } //end function main
-double hypotenuse(double x, double y) //calling function 
-{ //begins function hypotenuse
-	return sqrt((x*x)+(y*y)); //return value
-} //end function hypotenuse

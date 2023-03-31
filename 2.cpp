@@ -1,22 +1,27 @@
 #include<stdio.h>
-#include<assert.h>
-#include<math.h>
-double hypotenuse(double x, double y); //function prototype
-int main(void)
-{ //begins to execute
-	double side1, side2; //declare variables
-	assert(fabs(hypotenuse(3.0, 4.0)- 5.0) < 0.001); //debug the triangle value
-	assert(fabs(hypotenuse(5.0, 12.0)- 13.0) < 0.001); //debug the triangle value
-	assert(fabs(hypotenuse(8.0, 15.0))- 17.0) < 0.001); //debug the triangle value
+#define SIZE 10
+int main(void) //begins to execute the programme
+{
+	int marks[SIZE]; //declare the array
+	int i; //count variable
+	int sum; //decalre sum variable
 	
-	printf("Enter the Side 1: "); //prompt
-	scanf("%lf", &side1); //read the 1st side triangle value
-	printf("Enter the Side 2: "); //prompt
-	scanf("%lf", &side2); //read the second triangle value
+	for(i = 0; i < SIZE;){ //read the marks for 10 times by for loop
+		printf("Enter the mark between 0 to 20 of Student %d :- ", i + 1); //prompt
+		scanf("%d", &marks[i]); //read the mark entered by the user
+		if((marks[i] > 0)&&(marks[i] <= 20)){ //check the marks between 0 to 20
+			i++; //increament the value of the statement is true
+		} //end if statement
+	} //end for loop
 	
-	printf("Hypotenuse: %.2lf", hypotenuse(side1,side2)); //display hypotenuse
-}
-double hypotenuse(double x, double y) //calling function 
-{ //begins function hypotenuse
-	return sqrt((x*x)+(y*y)); //return value
-} //end function hypotenuse
+	for(i =0; i < SIZE; i++){ //display marks for 10 times by for loop
+		printf("Mark of Student %d : %d\n", i + 1, marks[i]); //display marks of the students
+	} //end for loop
+	
+	for(i = 0; i < SIZE; i++){ //check all values of the array
+		sum += marks[i]; //intializing array values for sum
+	} //end for loop
+	printf("Mean = %.1f", sum / (float)i); //display mean of the marks stored in array
+	
+	return 0; //exit the programme
+} //end function main
